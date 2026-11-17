@@ -60,20 +60,20 @@ def view_records():
 # view_records()
 
 def view_stats():
-    symmery = {}
+    summery = {}
     for item in Bookkeeping:
         # print(item.get('income'),item.get('expense'))
         #
         for key, value in item.items():
             if key in ("income", "expense"):
                 num = float(value)
-                if key in symmery:
-                    symmery[key] += num
+                if key in summery:
+                    summery[key] += num
                 else:
-                    symmery[key] = num
+                    summery[key] = num
 
-    income_total = symmery.get('income', 0)
-    expense_total = symmery.get('expense', 0)
+    income_total = summery.get('income', 0)
+    expense_total = summery.get('expense', 0)
     balance = income_total - expense_total
     print(f"【财务统计】 总收入: {income_total}  总支出: {expense_total}  当前余额：{balance}")
     # print(f"支出: {expense_total}")
